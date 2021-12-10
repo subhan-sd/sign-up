@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,600&display=swap');
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -22,8 +22,15 @@ body{
     grid-area: text;
 }
 
+.jumbo{
+    padding-top:18%;
+    font-weight:700 ;
+    font-size: 45px;
+}
+
 .card{
     grid-area: card;
+    width: 90%;
 }
 
 .trial{
@@ -44,23 +51,104 @@ body{
 
 .content{
     margin: auto;
-    width: 90%;
+    padding-top: 30px;
+    width: 88%;
+}
+
+.box{
+    display: flex;
+    width: 100%;
+}
+
+.box img{
+    display: none;
+    height: 20px;
+    width: 20px;
+    text-align:center;
+    padding: 15px 20px 10px 30px;
+    margin-left: -70px;
 }
 
 input{
-    padding: 10px 0 10px 0;
+    font-weight: 700;
+    padding: 15px 0 15px 20px;
+    padding-right: 0px;
     width: 100%;
     margin: auto;
     margin-top: px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(228, 228, 228);
 }
 
-.free{
+input:focus {
+    border:1px solid hsl(248, 32%, 49%);
+  }
+
+.alert{
+    display: none;
+    font-weight: 300;
+    color: hsl(0, 100%, 74%) ;
+    font-size: 11px;
+    text-align: right;
+    margin-top: -13px;
+    margin-bottom: 20px;
+}
+
+button{
+    font-weight: 600;
     color: #fafafa;
     width: 100%;
     background-color: hsl(154, 59%, 51%) ;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    /* padding-left: 15px; */
     border-radius:7px;
     margin-bottom:20px;
+   border: none;
+   transition: 0.4s;
+}
+
+button:hover{
+    background-color: hsl(154, 70%, 72%);
+}
+
+.footer{
+    color: #aaaaaa;
+    font-size: 10px;
+    text-align: center;
+    margin-top: -10px;
+    padding-bottom: 30px;
+}
+
+.footer b{
+    color: hsl(0, 100%, 74%) ;
+}
+
+@media only screen and (max-width: 400px){
+
+    .container{
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas: "text"
+                         "card";
+    grid-gap: 0 0;
+    }
+
+    .jumbo{
+        text-align: center;
+    }
+    
+    .detail{
+        text-align: center;
+        margin-bottom:20px ;
+    }
+
+    .card{
+        grid-area: card;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
 }

@@ -31,26 +31,113 @@
       
       <div class="form">
         <div class="content">
-          <div class="input">
-            <input type="text" name="first-name" placeholder="First Name">
-            <!-- First Name  -->
-            <input type="text" name="last-name" placeholder="Last Name">
-            <!-- Last Name  -->
-            <input type="text" name="email" placeholder="Email">
-            <!-- Email Address -->
-            <input type="password" name="password" placeholder="Password">
-            <!-- Password -->
-          </div>
-          <div class="free">
-            Claim your free trial 
-          </div>
-          <div class="footer">
-            By clicking the button, you are agreeing to our Terms and Services
-          </div>
+            <form action="" name="myform" onsubmit="return validationForm()">
+              <div class="box">
+                <input type="text" name="first-name" placeholder="First Name" id="fn">
+                <img src="images/icon-error.svg" alt="" id="error">
+              </div>
+              <div class="alert" id="alert">
+               <i>First Name cannot be empty</i> 
+              </div>
+              <!-- First Name  -->
+              <div class="box">
+                <input type="text" name="last-name" placeholder="Last Name" id="fl">
+                <img src="images/icon-error.svg" alt="" id="error">
+              </div>
+              <div class="alert" id="alert">
+                <i>Last Name cannot be empty</i> 
+               </div>
+              <!-- Last Name  -->
+              <div class="box">
+                <input type="text" name="email" placeholder="Email" id="email">
+                <img src="images/icon-error.svg" alt="" id="error" class="error">
+              </div>
+              <div class="alert" id="alert">
+                <i>Email Name cannot be empty</i> 
+               </div>
+              <!-- Email Address -->
+              <div class="box" >
+                <input type="password" name="password" placeholder="Password">
+                <img src="images/icon-error.svg" alt="" id="error">
+              </div>
+              <div class="alert" id="alert">
+                <i>Password Name cannot be empty</i> 
+               </div>
+              <!-- Password -->
+            <button>
+              CLAIM YOUR FREE TRIAL
+            </button>
+            </form>
+            <div class="footer">
+              By clicking the button, you are agreeing to our <b>Terms and Services</b> 
+            </div>
         </div>
       </div>
       
     </div>
   </div>
+
+<script>
+  function validationForm(){
+      // let x = document.getElementById('email').value;
+      var val =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+      // if (!x.match(!val)){
+
+      //   // alert("Invalid Ksong");
+      //   // console.log('LOse');
+
+      //   // ------------------------
+      //     document.getElementById('error').style.display="block";
+      //     document.getElementById('alert').style.display="block";
+      //     document.getElementById('email').style.border="2px solid hsl(0, 79%, 68%)";
+      //     console.log("kosong");
+      //   return false;
+      // }
+
+      var fn = document.forms["myform"]["first-name"];
+        var ln = document.forms["myform"]["last-name"];
+        var email = document.forms["myform"]["email"];
+        var password = document.forms["myform"]["password"];
+  
+        if (fn.value == "") {
+          document.getElementById('error').style.display="block";
+          document.getElementById('alert').style.display="block";
+          document.getElementById('fn').style.border="2px solid hsl(0, 79%, 68%)";
+            name.focus();
+            return false;
+        }
+  
+        if (ln.value == "") {
+          document.getElementById('error').style.display="block";
+          document.getElementById('alert').style.display="block";
+          document.getElementById('ln').style.border="2px solid hsl(0, 79%, 68%)";
+            address.focus();
+            return false;
+        }
+  
+        if (email.value == "") {
+            window.alert(
+              "Please enter a valid e-mail address.");
+            email.focus();
+            return false;
+        }
+
+        if (!email.match(!val)) {
+            window.alert(
+              "Please enter a valid e-mail address.");
+            email.focus();
+            return false;
+        }
+  
+        if (password.selectedIndex < 2) {
+            alert("Please enter your course.");
+            what.focus();
+            return false;
+        }
+  
+        return true;
+    }
+</script>
 </body>
 </html>
