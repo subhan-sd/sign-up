@@ -34,33 +34,33 @@
             <form action="" name="myform" onsubmit="return validationForm()">
               <div class="box">
                 <input type="text" name="first-name" placeholder="First Name" id="fn">
-                <img src="images/icon-error.svg" alt="" id="error">
+                <img src="images/icon-error.svg" alt="" id="error-fn">
               </div>
-              <div class="alert" id="alert">
+              <div class="alert" id="alert-fn">
                <i>First Name cannot be empty</i> 
               </div>
               <!-- First Name  -->
               <div class="box">
-                <input type="text" name="last-name" placeholder="Last Name" id="fl">
-                <img src="images/icon-error.svg" alt="" id="error">
+                <input type="text" name="last-name" placeholder="Last Name" id="ln">
+                <img src="images/icon-error.svg" alt="" id="error-ln">
               </div>
-              <div class="alert" id="alert">
+              <div class="alert" id="alert-ln">
                 <i>Last Name cannot be empty</i> 
                </div>
               <!-- Last Name  -->
               <div class="box">
                 <input type="text" name="email" placeholder="Email" id="email">
-                <img src="images/icon-error.svg" alt="" id="error" class="error">
+                <img src="images/icon-error.svg" alt="" id="error-email" class="error">
               </div>
-              <div class="alert" id="alert">
+              <div class="alert" id="alert-email">
                 <i>Email Name cannot be empty</i> 
                </div>
               <!-- Email Address -->
               <div class="box" >
-                <input type="password" name="password" placeholder="Password">
-                <img src="images/icon-error.svg" alt="" id="error">
+                <input type="password" name="password" placeholder="Password" id="password">
+                <img src="images/icon-error.svg" alt="" id="error-ps">
               </div>
-              <div class="alert" id="alert">
+              <div class="alert" id="alert-ps">
                 <i>Password Name cannot be empty</i> 
                </div>
               <!-- Password -->
@@ -100,41 +100,51 @@
         var email = document.forms["myform"]["email"];
         var password = document.forms["myform"]["password"];
   
-        if (fn.value == "") {
-          document.getElementById('error').style.display="block";
-          document.getElementById('alert').style.display="block";
+
+        if (fn.value || ln.value || email.value || password.value == ""){
+          // first-name
+          document.getElementById('error-fn').style.display="block";
+          document.getElementById('alert-fn').style.display="block";
           document.getElementById('fn').style.border="2px solid hsl(0, 79%, 68%)";
+          // last-name
+          document.getElementById('error-ln').style.display="block";
+          document.getElementById('alert-ln').style.display="block";
+          document.getElementById('ln').style.border="2px solid hsl(0, 79%, 68%)";
+          // email
+          document.getElementById('error-email').style.display="block";
+          document.getElementById('alert-email').style.display="block";
+          document.getElementById('email').style.border="2px solid hsl(0, 79%, 68%)";
+          // password
+          document.getElementById('error-ps').style.display="block";
+          document.getElementById('alert-ps').style.display="block";
+          document.getElementById('password').style.border="2px solid hsl(0, 79%, 68%)";
+        }else if (fn.value == "") {
+          document.getElementById('error-fn').style.display="block";
+          document.getElementById('alert-fn').style.display="block";
+          document.getElementById('fn').style.border="2px solid hsl(0, 79%, 68%)";
+          document.getElementsByTagName(input).style.color="hsl(0, 79%, 68%)";
             name.focus();
             return false;
-        }
-  
-        if (ln.value == "") {
-          document.getElementById('error').style.display="block";
-          document.getElementById('alert').style.display="block";
+        }else if (ln.value == "") {
+          document.getElementById('error-ln').style.display="block";
+          document.getElementById('alert-ln').style.display="block";
           document.getElementById('ln').style.border="2px solid hsl(0, 79%, 68%)";
             address.focus();
             return false;
-        }
-  
-        if (email.value == "") {
-            window.alert(
-              "Please enter a valid e-mail address.");
+        } else if (email.value == "") {
+          document.getElementById('error-email').style.display="block";
+          document.getElementById('alert-email').style.display="block";
+          document.getElementById('email').style.border="2px solid hsl(0, 79%, 68%)";
+            email.focus();
+            return false;
+        } else if (password.value =="") {
+          document.getElementById('error-ps').style.display="block";
+          document.getElementById('alert-ps').style.display="block";
+          document.getElementById('password').style.border="2px solid hsl(0, 79%, 68%)";
             email.focus();
             return false;
         }
 
-        if (!email.match(!val)) {
-            window.alert(
-              "Please enter a valid e-mail address.");
-            email.focus();
-            return false;
-        }
-  
-        if (password.selectedIndex < 2) {
-            alert("Please enter your course.");
-            what.focus();
-            return false;
-        }
   
         return true;
     }
